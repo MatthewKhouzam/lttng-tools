@@ -38,12 +38,12 @@
 #define LTTNG_VIEWER_FLAG_NEW_STREAM	(1 << 1)
 
 enum lttng_viewer_command {
-	VIEWER_CONNECT		= 1,
-	VIEWER_LIST_SESSIONS	= 2,
-	VIEWER_ATTACH_SESSION	= 3,
-	VIEWER_GET_NEXT_INDEX	= 4,
-	VIEWER_GET_PACKET	= 5,
-	VIEWER_GET_METADATA	= 6,
+	VIEWER_CONNECT		= 1, /* Get the version */
+	VIEWER_LIST_SESSIONS	= 2, /* List all LTTng sessions */
+	VIEWER_ATTACH_SESSION	= 3, /* Attach to a session */
+	VIEWER_GET_NEXT_INDEX	= 4, /* get the next index */
+	VIEWER_GET_PACKET	= 5, /* get a packet */
+	VIEWER_GET_METADATA	= 6, /* get the trace metadata */
 };
 
 enum lttng_viewer_attach_return_code {
@@ -64,21 +64,21 @@ enum lttng_viewer_next_index_return_code {
 };
 
 enum lttng_viewer_get_packet_return_code {
-	VIEWER_GET_PACKET_OK		= 1,
-	VIEWER_GET_PACKET_RETRY		= 2,
-	VIEWER_GET_PACKET_ERR		= 3,
-	VIEWER_GET_PACKET_EOF		= 4,
+	VIEWER_GET_PACKET_OK		= 1, /* response: OK */
+	VIEWER_GET_PACKET_RETRY		= 2, /* response: retry */
+	VIEWER_GET_PACKET_ERR		= 3, /* response: error */
+	VIEWER_GET_PACKET_EOF		= 4, /* response: end of file */
 };
 
 enum lttng_viewer_get_metadata_return_code {
-	VIEWER_METADATA_OK	= 1,
-	VIEWER_NO_NEW_METADATA	= 2,
-	VIEWER_METADATA_ERR	= 3,
+	VIEWER_METADATA_OK	= 1, /* response: metadata ok */
+	VIEWER_NO_NEW_METADATA	= 2, /* response: ok, but no new metadata */
+	VIEWER_METADATA_ERR	= 3, /* response: error */
 };
 
 enum lttng_viewer_connection_type {
-	VIEWER_CLIENT_COMMAND		= 1,
-	VIEWER_CLIENT_NOTIFICATION	= 2,
+	VIEWER_CLIENT_COMMAND		= 1, /* client command */
+	VIEWER_CLIENT_NOTIFICATION	= 2, /* client notification */
 };
 
 enum lttng_viewer_seek {
